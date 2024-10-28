@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} Room Members List {% endblock %}
+{% block content %}
+<br><br>
+<!--Main layout-->
+<main>
+    <div class="container">
+        <h2 class="my-5 h2 text-center blue-text">Danh Sách Thành Viên Đăng Ký Phòng</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Tên Phòng</th>
+                        <th scope="col">Thành Viên</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room, accommodations in room_accommodations.items %}
+                    <tr>
+                        <td>{{ room.room_name }}</td>
+                        <td>
+                            <ul>
+                                {% for accommodation in accommodations %}
+                                <li>{{ accommodation.student }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<br><br><br><br><br><br>
+{% endblock %}

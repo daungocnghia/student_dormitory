@@ -84,6 +84,17 @@ def accomodation_request(request):
             messages.error(request, "Sorry! You do not have a enough balance to have this accomodation!")
             return redirect(request.META.get("HTTP_REFERER"))
 
+def room_members_list(request):
+    if request.user.is_authenticated:
+        rooms = Rooms.objects.all()
+        room_accommodations = {}
+        for room in rooms:
+            accommodations = Accomodation_Request.objects.filter(room=room)
+            room_accommodations[room] = accommodations
+        return render(request, 'student/room_members_list.html', {'room_accommodations': room_accommodations})
+    else:
+        messages.error(request, "You need to log in first")
+        return redirect('login')
 
 def room_transfer(request):
     is_student = False

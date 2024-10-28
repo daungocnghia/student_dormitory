@@ -20,6 +20,7 @@ urlpatterns = [
     path("guest_stay", guest_stay, name = "guest-stay"),
     path("complain", complaints, name = "complaints"),
     path('rents', view_rents, name='view-rents'),
+    path('member_list', room_members_list, name='room-members'),
     
     # Admin Urls
 
