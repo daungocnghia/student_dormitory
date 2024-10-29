@@ -12,6 +12,7 @@
                     <tr>
                         <th scope="col">Tên Phòng</th>
                         <th scope="col">Thành Viên</th>
+                        <th scope="col">User Name</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,13 @@
                             <ul>
                                 {% for accommodation in accommodations %}
                                 <li>{{ accommodation.student }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                {% for accommodation in accommodations %}
+                                <li>{{accommodation.student.user.username}}</li>
                                 {% endfor %}
                             </ul>
                         </td>
