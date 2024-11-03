@@ -23,7 +23,7 @@ urlpatterns = [
     path('member_list', room_members_list, name='room-members'),
     
     # Admin Urls
-
+    path("manage_rent", manage_rent, name = "manage-rent"),
     path("create_block", create_block, name = "create-block"),
     path("create_manager", create_manager, name = "create-manager"),
     path("create_room", create_room, name = "create-room"),

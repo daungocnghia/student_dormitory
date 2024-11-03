@@ -155,7 +155,7 @@ class Guideline(models.Model):
     def __str__(self):
         return f"{self.rule[:20]}"
 class Rent(models.Model):
-    room=models.CharField( max_length=50)
+    room=models.ForeignKey(Rooms, on_delete = models.CASCADE)
     rent = models.IntegerField()
     electricitybill = models.IntegerField()
     waterbill = models.IntegerField()

@@ -109,18 +109,20 @@ def manage_rule(request):
     return render(request, "admin_templates/manage_rule.html", context)
 
 def manage_rent(request):
+    rooms= Rooms.objects.all()
     if request.method == "POST":
         room=request.POST.get("room")
         rent = request.POST.get("rent")
         electricbill = request.POST.get("electricbill")
         waterbill = request.POST.get("waterbill")
         service = request.POST.get("service")
-        rents = Rent(room=room,rent=rent, electricity_bill=electricbill, water_bill=waterbill, service=service)
+        room_obj=Rooms.objects.filter(id=room).first()
+        rents = Rent(room=room_obj,rent=rent, electricity_bill=electricbill, water_bill=waterbill, service=service)
         rents.save()
         messages.success(request, "Success")
         return redirect(request.META.get("HTTP_REFERER"))
-    context = {}
-    return render(request, "admin_templates/manage_manage_rent.html", context)
+    context = {"rooms":rooms}
+    return render(request, "admin_templates/manage_rent.html", context)
 
 def approve_or_disapprove(request, ac_id):
     accomodation_req = Accomodation_Request.objects.filter(id = ac_id).first()

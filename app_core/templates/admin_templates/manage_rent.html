@@ -1,6 +1,6 @@
 {% extends 'admin_templates/base.html' %}
 
-{% block title %} CreateRents  {% endblock %}
+{% block title %} CreateRoom  {% endblock %}
 
 
 {% block content %} 
@@ -8,9 +8,10 @@
 <!--Main layout-->
 <main class="mt-5 pt-4">
     <div class="container wow fadeIn">
+
         <!-- Heading -->
         <br><br>
-        <h2 class="my-5 h2 text-center">Create Rents</h2>
+        <h2 class="my-5 h2 text-center text-primary">Create Room</h2>
 
         <!--Grid row-->
         <div class="row">
@@ -22,14 +23,8 @@
             <div class="card">
 
             <!--Card content-->
-            <form class="card-body" action="{% url 'app:manage-rule' %}" method="POST"> {% csrf_token %}
-                
-                <!--address-->
-                <div class="md-form mb-5">
-                    <textarea id="room" class="form-control" name="room"> </textarea>
-                    <label for="room" class="">Room</label>
-                </div>
-                <!--Rent-->
+            <form class="card-body" action="{% url 'app:manage-rent' %}" method="POST"> {% csrf_token %}
+                <!--email-->
                 <div class="md-form mb-5">
                     <input type="number" id="rent" class="form-control" name="rent" required>
                     <label for="rent" class="">Rent</label>
@@ -49,9 +44,18 @@
                     <input type="number" id="service" class="form-control" name="service" required>
                     <label for="service" class="">Service Charges</label>
                 </div>
+                <!--address-->
+                <div class="md-form mb-5">
+                    <select id="room_option" class="form-control" name="room">
+                        <option>Choose Room</option>
+                        {% for room in rooms %}
+                            <option value="{{room.id}}">Room{{room.room_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Create Rules and Guidelines</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Create Rent</button>
                 {% if messages %}
                     <hr class="mb-1">
                     {% for message in messages %}
@@ -75,5 +79,5 @@
     </div>
 </main>
 <!--Main layout-->
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 {% endblock %}
