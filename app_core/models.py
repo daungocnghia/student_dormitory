@@ -160,6 +160,10 @@ class Rent(models.Model):
     electricitybill = models.IntegerField()
     waterbill = models.IntegerField()
     service = models.IntegerField()
+    is_paid = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f'Rent of Room {self.room}'
     def total_bill(self):
         return self.rent + self.electricitybill + self.waterbill + self.service
 
