@@ -1,16 +1,17 @@
-from django.shortcuts import *
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as dlogin, logout as dlogout
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import *
+from .models import Rooms, Notification, Student_Account, Deposit, House_Manager, Block, Accomodation_Request, Complaints, GuestStayRequest, RoomTransfer, Guideline, Rent
 from django.http import JsonResponse
-
 
 def welcome_page(request):
     rooms = Rooms.objects.all()
-    for room in rooms:
-        print(room.image1.url)
-    context = {"rooms":rooms}
+    notifications = Notification.objects.filter(is_active=True).order_by('-created_at')
+    context = {
+        "rooms": rooms,
+        "notifications": notifications
+    }
     return render(request, "home.html", context)
 
 
@@ -23,7 +24,7 @@ def login_user(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-        user = authenticate(username=username, password = password)
+        user = authenticate(username=username, password=password)
         if user is not None:
             dlogin(request, user)
             if username == "admin" or username == "admin_user":
@@ -40,7 +41,7 @@ def register_page(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-        user = User.objects.create_user(username = username, password = password)
+        user = User.objects.create_user(username=username, password=password)
         user.save()
         return redirect("login-page")
     context = {}
@@ -49,13 +50,14 @@ def register_page(request):
 
 def view_rooms(request):
     rooms = Rooms.objects.all()
-    context = {"rooms":rooms}
+    context = {"rooms": rooms}
     return render(request, "view_rooms.html", context)
 
 
 def logout_page(request):
     dlogout(request)
     return redirect("/")
+
 
 def check_username(request):
     username = request.GET.get('username', None)

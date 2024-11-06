@@ -6,7 +6,6 @@
 
 <!--Carousel Wrapper-->
 <div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel">
-
     <!--Indicators-->
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
@@ -16,191 +15,152 @@
 
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
-
-    <!--First slide-->
-    <div class="carousel-item active">
-        <div class="view" style="background-image: url('../media/photos/ptit1 (2).jpg'); background-repeat: no-repeat; background-size: cover;">
-
-        <!-- Mask & flexbox options-->
-        <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
-
-            <!-- Content -->
-            <div class="text-center white-text mx-5 wow fadeIn">
-                <h1 class="mb-4">
-                    <strong>Hostel Management System</strong>
-                </h1>
-
-                <p>
-                    <strong>Register as a student to enjoy the facilities</strong>
-                </p>
-                <p>
-                    <strong>Welcome to PTIT Hostel</strong>
-                </p>
-                {% if request.user.is_authenticated %}
-                <a href="{% url 'app:student-register' %}" class="btn btn-outline-white btn-lg">Regiser Here Now
-                    <i class="fas fa-graduation-cap ml-2"></i>
-                </a>
-                {% else %}
-                <a href="{% url 'register-user' %}" class="btn btn-outline-white btn-lg">Sign Up Here Now
-                    <i class="fas fa-graduation-cap ml-2"></i>
-                </a>
-                {% endif %}
+        <!--First slide-->
+        <div class="carousel-item active">
+            <div class="view" style="background-image: url('../media/photos/ptit1 (2).jpg'); background-repeat: no-repeat; background-size: cover;">
+                <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+                    <div class="text-center white-text mx-5 wow fadeIn">
+                        <h1 class="mb-4"><strong>Hostel Management System</strong></h1>
+                        <p><strong>Register as a student to enjoy the facilities</strong></p>
+                        <p><strong>Welcome to PTIT Hostel</strong></p>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'app:student-register' %}" class="btn btn-outline-white btn-lg">Register Here Now
+                            <i class="fas fa-graduation-cap ml-2"></i>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'register-user' %}" class="btn btn-outline-white btn-lg">Sign Up Here Now
+                            <i class="fas fa-graduation-cap ml-2"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-            <!-- Content -->
-
         </div>
-        <!-- Mask & flexbox options-->
+        <!--/First slide-->
 
-        </div>
-    </div>
-    <!--/First slide-->
-
-    <!--Second slide-->
-    <div class="carousel-item">
-        <div class="view" style="background-image: url('../media/photos/ptit.png'); background-repeat: no-repeat; background-size: cover;">
-
-        <!-- Mask & flexbox options-->
-        <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
-
-            <!-- Content -->
-            <div class="text-center white-text mx-5 wow fadeIn">
-            <h1 class="mb-4">
-                <strong>PTIT Hostel</strong>
-            </h1>
-
-            <p>
-                <strong>Register as a student to get started</strong>
-            </p>
-            <p>
-                <strong>PTIT Hostel is number 1</strong>
-            </p>
-            {% if request.user.is_authenticated%}
-            <a href="{% url 'app:student-register' %}" class="btn btn-outline-white btn-lg">Register Here Now
-                <i class="fas fa-graduation-cap ml-2"></i>
-            </a>
-            {% else %}
-            <a href="{% url 'register-user' %}" class="btn btn-outline-white btn-lg">Sign Up Here Now
-                <i class="fas fa-graduation-cap ml-2"></i>
-            </a>
-            {% endif %}
+        <!--Second slide-->
+        <div class="carousel-item">
+            <div class="view" style="background-image: url('../media/photos/ptit.png'); background-repeat: no-repeat; background-size: cover;">
+                <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+                    <div class="text-center white-text mx-5 wow fadeIn">
+                        <h1 class="mb-4"><strong>PTIT Hostel</strong></h1>
+                        <p><strong>Register as a student to get started</strong></p>
+                        <p><strong>PTIT Hostel is number 1</strong></p>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'app:student-register' %}" class="btn btn-outline-white btn-lg">Register Here Now
+                            <i class="fas fa-graduation-cap ml-2"></i>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'register-user' %}" class="btn btn-outline-white btn-lg">Sign Up Here Now
+                            <i class="fas fa-graduation-cap ml-2"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-            <!-- Content -->
-
         </div>
-        <!-- Mask & flexbox options-->
-
-        </div>
-    </div>
-    <!--/Second slide-->
-
+        <!--/Second slide-->
     </div>
     <!--/.Slides-->
 
     <!--Controls-->
     <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
     </a>
-
     <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
     </a>
     <!--/.Controls-->
-
 </div>
 <!--/.Carousel Wrapper-->
 
 <!--Main layout-->
 <main>
     <div class="container">
-
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
-
-        <!-- Navbar brand -->
-        <span class="navbar-brand">Facilities:</span>
-
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="">Rooms</a>
-            </li>
-        </ul>
-        <!-- Links -->
-        </div>
-        <!-- Collapsible content -->
-
-    </nav>
-    <!--/.Navbar-->
-
-    <!--Section: Products v.3-->
-    <section class="text-center mb-4">
-
-        <!--Grid row-->
-        <div class="row wow fadeIn">
-        {% for room in rooms %}
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4">
-
-            <!--Card-->
-            <div class="card">
-
-            <!--Card image-->
-            <div class="view overlay">
-                <img src="{{room.image1.url}}" class="card-img-top" alt="" style="height:200px;">
-                <a>
-                    <div class="mask rgba-white-slight"></div>
-                </a>
+        <!--Section: Products v.3-->
+        <section class="text-center mb-4">
+            <div class="row wow fadeIn">
+            {% for room in rooms %}
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <div class="view overlay">
+                            <img src="{{room.image1.url}}" class="card-img-top" alt="" style="height:200px;">
+                            <a><div class="mask rgba-white-slight"></div></a>
+                        </div>
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>{{room.room_name}}</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                                    <a href="" class="dark-grey-text">Block {{room.block.block_name}}
+                                        <span class="badge badge-pill danger-color">{{room.room_tag}}</span>
+                                    </a>
+                                </strong>
+                            </h5>
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>₦{{room.charge}}</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
             </div>
-            <!--Card image-->
-
-            <!--Card content-->
-            <div class="card-body text-center">
-                <!--Category & Title-->
-                <a href="" class="grey-text">
-                <h5>{{room.room_name}}</h5>
-                </a>
-                <h5>
-                <strong>
-                    <a href="" class="dark-grey-text">Block {{room.block.block_name}}
-                    <span class="badge badge-pill danger-color">{{room.room_tag}}</span>
-                    </a>
-                </strong>
-                </h5>
-
-                <h4 class="font-weight-bold blue-text">
-                    <strong>₦{{room.charge}}</strong>
-                </h4>
-            </div>
-            <!--Card content-->
-
-            </div>
-            <!--Card-->
-
-        </div>
-        <!--Grid column-->
-
-        {% endfor %}
-        </div>
-        <!--Grid row-->
-
-    </section>
-    <!--Section: Products v.3-->
-
+        </section>
     </div>
 </main>
 <!--Main layout-->
+
+<!-- Notification Section -->
+{% if notifications %}
+    <div class="container mt-4">
+        <div class="card" style="border: none; background-color: #ffffff;">
+            <div class="card-header text-center" style="border-top: 2px dashed #ffffff; border-bottom: 2px dashed #ffffff; background-color: #ffffff;">
+                <h4 class="mb-0" style="color: #f90505; font-weight: bold;">
+                    THÔNG BÁO 
+                    <span style="display: inline-block; animation: star-animation 1.5s infinite;">✨</span> 
+                </h4>
+            </div>
+            <div class="card-body p-0">
+                <table class="table mb-0" style="background-color: #ffffff;">
+                    <tbody>
+                        {% for notification in notifications %}
+                            <tr style="border-bottom: 1px dashed #ffffff;">
+                                <td style="width: 5%; font-weight: bold;">
+                                    <span style="color: red; animation: blink-animation 0.55s infinite;">»</span> 
+                                </td>
+                                <td style="width: 75%; color: #ffffff;">
+                                    <strong>{{ notification.title }}</strong><br>
+                                    <span>{{ notification.content|truncatewords:20 }}</span> 
+                                </td>
+                                <td style="width: 20%; color: #ffffff;" class="text-muted text-right">
+                                    {{ notification.created_at|date:"d/m/Y H:i" }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+<!-- CSS -->
+<style>
+@keyframes blink-animation {
+    0% { color: red; }
+    50% { color: white; }
+    100% { color: red; }
+}
+
+@keyframes star-animation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+</style>
+
 
 <br><br><br><br><br><br>
 {% endblock content %}
